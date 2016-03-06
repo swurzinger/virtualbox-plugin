@@ -72,7 +72,7 @@ public final class VirtualBoxControlV43 implements VirtualBoxControl {
         while (state.value() >= MachineState.FirstTransient.value() && state.value() <= MachineState.LastTransient.value()) {
             log.logInfo("node " + vbMachine.getName() + " in state " + state.toString());
             try {
-                Thread.sleep(1000);
+                wait(1000);
             } catch (InterruptedException e) {}
             state = machine.getState();
         }
@@ -163,7 +163,7 @@ public final class VirtualBoxControlV43 implements VirtualBoxControl {
         while (state.value() >= MachineState.FirstTransient.value() && state.value() <= MachineState.LastTransient.value()) {
             log.logInfo("node " + vbMachine.getName() + " in state " + state.toString());
             try {
-                Thread.sleep(1000);
+                wait(1000);
             } catch (InterruptedException e) {}
             state = machine.getState();
         }

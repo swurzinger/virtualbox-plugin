@@ -125,6 +125,7 @@ public class VirtualBoxComputerLauncher extends ComputerLauncher {
       VirtualBoxMachine machine = VirtualBoxPlugin.getVirtualBoxMachine(hostName, virtualMachineName);
       if (machine == null) {
         listener.fatalError("Unable to find specified machine");
+        return;
       }
       log(listener, Messages.VirtualBoxLauncher_stopVM(machine));
       long result = VirtualBoxUtils.stopVm(machine, virtualMachineStopMode, new VirtualBoxTaskListenerLog(listener, "[VirtualBox] "));
