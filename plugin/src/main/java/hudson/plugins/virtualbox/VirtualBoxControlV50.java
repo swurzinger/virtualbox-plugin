@@ -1,5 +1,6 @@
 package hudson.plugins.virtualbox;
 
+import hudson.util.Secret;
 import java.util.ArrayList;
 import java.util.List;
 import org.virtualbox_5_0.*;
@@ -9,9 +10,9 @@ public final class VirtualBoxControlV50 implements VirtualBoxControl {
     private final VirtualBoxManager manager;
     private final IVirtualBox vbox;
 
-    public VirtualBoxControlV50(String hostUrl, String userName, String password) {
+    public VirtualBoxControlV50(String hostUrl, String userName, Secret password) {
         manager = VirtualBoxManager.createInstance(null);
-        manager.connect(hostUrl, userName, password);
+        manager.connect(hostUrl, userName, password.getPlainText());
         vbox = manager.getVBox();
     }
 

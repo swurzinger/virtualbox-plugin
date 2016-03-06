@@ -1,6 +1,5 @@
 package hudson.plugins.virtualbox;
 
-
 import com.sun.xml.ws.commons.virtualbox_3_1.IVirtualBox;
 import com.sun.xml.ws.commons.virtualbox_3_1.IWebsessionManager;
 import java.util.HashMap;
@@ -30,7 +29,7 @@ public final class VirtualBoxUtils {
   }
 
   public static void disconnectAll() {
-    for (Map.Entry<String, VirtualBoxControl> entry: vboxControls.entrySet()) {
+    for (Map.Entry<String, VirtualBoxControl> entry : vboxControls.entrySet()) {
       entry.getValue().disconnect();
     }
     vboxControls.clear();
@@ -66,7 +65,7 @@ public final class VirtualBoxUtils {
 
     log.logInfo("Trying to connect to " + host.getUrl() + ", user " + host.getUsername());
     IWebsessionManager manager = new IWebsessionManager(host.getUrl());
-    IVirtualBox vbox = manager.logon(host.getUsername(), host.getPassword());
+    IVirtualBox vbox = manager.logon(host.getUsername(), host.getPassword().getPlainText());
     String version = vbox.getVersion();
     manager.disconnect(vbox);
 
