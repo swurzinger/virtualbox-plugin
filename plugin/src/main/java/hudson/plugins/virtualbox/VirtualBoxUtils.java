@@ -71,13 +71,15 @@ public final class VirtualBoxUtils {
     manager.disconnect(vbox);
 
     log.logInfo("Creating connection to VirtualBox version " + version);
-      if (version.startsWith("4.3")) {
-       vboxControl = new VirtualBoxControlV43(host.getUrl(), host.getUsername(), host.getPassword());
-      } else if (version.startsWith("4.2")) {
-       vboxControl = new VirtualBoxControlV42(host.getUrl(), host.getUsername(), host.getPassword());
-      } else if (version.startsWith("4.1")) {
-       vboxControl = new VirtualBoxControlV41(host.getUrl(), host.getUsername(), host.getPassword());
-      } else if (version.startsWith("4.0")) {
+    if (version.startsWith("5.0")) {
+      vboxControl = new VirtualBoxControlV50(host.getUrl(), host.getUsername(), host.getPassword());
+    } else if (version.startsWith("4.3")) {
+      vboxControl = new VirtualBoxControlV43(host.getUrl(), host.getUsername(), host.getPassword());
+    } else if (version.startsWith("4.2")) {
+      vboxControl = new VirtualBoxControlV42(host.getUrl(), host.getUsername(), host.getPassword());
+    } else if (version.startsWith("4.1")) {
+      vboxControl = new VirtualBoxControlV41(host.getUrl(), host.getUsername(), host.getPassword());
+    } else if (version.startsWith("4.0")) {
       vboxControl = new VirtualBoxControlV40(host.getUrl(), host.getUsername(), host.getPassword());
     } else if (version.startsWith("3.")) {
       vboxControl = new VirtualBoxControlV31(host.getUrl(), host.getUsername(), host.getPassword());
