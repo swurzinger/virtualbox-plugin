@@ -70,7 +70,9 @@ public final class VirtualBoxUtils {
     manager.disconnect(vbox);
 
     log.logInfo("Creating connection to VirtualBox version " + version);
-    if (version.startsWith("5.0")) {
+    if (version.startsWith("5.1")) {
+      vboxControl = new VirtualBoxControlV51(host.getUrl(), host.getUsername(), host.getPassword());
+    } else if (version.startsWith("5.0")) {
       vboxControl = new VirtualBoxControlV50(host.getUrl(), host.getUsername(), host.getPassword());
     } else if (version.startsWith("4.3")) {
       vboxControl = new VirtualBoxControlV43(host.getUrl(), host.getUsername(), host.getPassword());
