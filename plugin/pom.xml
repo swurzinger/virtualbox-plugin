@@ -51,8 +51,12 @@
           <artifactId>vboxws-51</artifactId>
           <version>5.1.6</version>
       </dependency>
+      <dependency>
+          <groupId>org.virtualbox</groupId>
+          <artifactId>vboxws-52</artifactId>
+          <version>5.2.6</version>
+      </dependency>
   </dependencies>
-
   <repositories>
     <!-- Dirty hack -->
     <repository>
