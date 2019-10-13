@@ -65,7 +65,7 @@ public final class VirtualBoxUtils {
     String version = null;
 
     try {
-      org.virtualbox_5_2.VirtualBoxManager manager = org.virtualbox_5_2.VirtualBoxManager.createInstance(null);
+      org.virtualbox_6_0.VirtualBoxManager manager = org.virtualbox_6_0.VirtualBoxManager.createInstance(null);
       manager.connect(host.getUrl(), host.getUsername(), host.getPassword().getPlainText());
       version = manager.getVBox().getVersion();
       manager.disconnect();
@@ -78,7 +78,9 @@ public final class VirtualBoxUtils {
     }
 
     log.logInfo("Creating connection to VirtualBox version " + version);
-    if (version.startsWith("5.2")) {
+    if (version.startsWith("6.0")) {
+      vboxControl = new VirtualBoxControlV60(host.getUrl(), host.getUsername(), host.getPassword());
+    } else if (version.startsWith("5.2")) {
       vboxControl = new VirtualBoxControlV52(host.getUrl(), host.getUsername(), host.getPassword());
     } else if (version.startsWith("5.1")) {
       vboxControl = new VirtualBoxControlV51(host.getUrl(), host.getUsername(), host.getPassword());
