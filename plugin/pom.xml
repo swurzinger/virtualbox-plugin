@@ -61,6 +61,11 @@
           <artifactId>vboxws-60</artifactId>
           <version>6.0.12</version>
       </dependency>
+      <dependency>
+          <groupId>org.virtualbox</groupId>
+          <artifactId>vboxws-61</artifactId>
+          <version>6.1.28</version>
+      </dependency>
   </dependencies>
   <repositories>
     <!-- Dirty hack -->
