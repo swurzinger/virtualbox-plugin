@@ -57,3 +57,16 @@ mvn deploy:deploy-file
     -Dfile=/PATH_TO_DOWNLOADED_JAR/vboxjws-6.0.12.jar
     -Durl=file:/PATH_TO_PLUGIN_SOURCES/virtualbox-plugin/plugin/../lib
     -DrepositoryId=virtualbox-libs
+
+
+
+Command used to install vboxjws.jar version 6.1.28 to local repository:
+
+mvn deploy:deploy-file
+    -DgroupId=org.virtualbox
+    -DartifactId=vboxws-61
+    -Dversion=6.1.28
+    -Dpackaging=jar
+    -Dfile=/PATH_TO_DOWNLOADED_JAR/vboxjws-6.1.28.jar
+    -Durl=file:/PATH_TO_PLUGIN_SOURCES/virtualbox-plugin/plugin/../lib
+    -DrepositoryId=virtualbox-libs
