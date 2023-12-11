@@ -69,7 +69,7 @@ public final class VirtualBoxUtils {
       manager.connect(host.getUrl(), host.getUsername(), host.getPassword().getPlainText());
       version = manager.getVBox().getVersion();
       manager.disconnect();
-    } catch (Exception e) { 
+    } catch (Exception e) {
       // fallback to old method
       com.sun.xml.ws.commons.virtualbox_3_1.IWebsessionManager manager = new com.sun.xml.ws.commons.virtualbox_3_1.IWebsessionManager(host.getUrl());
       com.sun.xml.ws.commons.virtualbox_3_1.IVirtualBox vbox = manager.logon(host.getUsername(), host.getPassword().getPlainText());
@@ -78,7 +78,9 @@ public final class VirtualBoxUtils {
     }
 
     log.logInfo("Creating connection to VirtualBox version " + version);
-    if (version.startsWith("6.1")) {
+    if (version.startsWith("7.0")) {
+      vboxControl = new VirtualBoxControlV70(host.getUrl(), host.getUsername(), host.getPassword());
+    } else if (version.startsWith("6.1")) {
       vboxControl = new VirtualBoxControlV61(host.getUrl(), host.getUsername(), host.getPassword());
     } else if (version.startsWith("6.0")) {
       vboxControl = new VirtualBoxControlV60(host.getUrl(), host.getUsername(), host.getPassword());
