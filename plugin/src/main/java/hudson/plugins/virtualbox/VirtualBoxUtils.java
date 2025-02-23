@@ -78,7 +78,9 @@ public final class VirtualBoxUtils {
     }
 
     log.logInfo("Creating connection to VirtualBox version " + version);
-    if (version.startsWith("7.0")) {
+    if (version.startsWith("7.1")) {
+      vboxControl = new VirtualBoxControlV71(host.getUrl(), host.getUsername(), host.getPassword());
+    } else if (version.startsWith("7.0")) {
       vboxControl = new VirtualBoxControlV70(host.getUrl(), host.getUsername(), host.getPassword());
     } else if (version.startsWith("6.1")) {
       vboxControl = new VirtualBoxControlV61(host.getUrl(), host.getUsername(), host.getPassword());

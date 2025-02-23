@@ -71,6 +71,11 @@
       <artifactId>vboxws-70</artifactId>
       <version>7.0.6</version>
     </dependency>
+    <dependency>
+      <groupId>org.virtualbox</groupId>
+      <artifactId>vboxws-71</artifactId>
+      <version>7.1.6</version>
+    </dependency>
   </dependencies>
   <repositories>
     <!-- Dirty hack -->
